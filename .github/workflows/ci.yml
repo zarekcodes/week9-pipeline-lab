@@ -1,14 +1,14 @@
-name: Run Tasks                       #WORKFLOW: name in actins tab
+name: Run Tasks                       #WORKFLOW: name in actions tab
 
 on: [push]                            #EVENT: run on every push
 
-jobs:                                 #JOB:
-  test:                               #JOB: 
-    runs-on: ubuntu-latest            #RUNNER:
-    steps:                            #STEP: 
-      - uses: actions/checkout@v4     #STEP 1: grab code
-      - uses: actions/setup-python@v5 #STEP 2: install Python
-        with:
-          python-version: "3.11"      # specifically this version
+jobs:                                 #JOB: holds jobs
+  test:                               #JOB: specific job named test
+    runs-on: ubuntu-latest            #RUNNER: clean Ubuntu machine for the job
+    steps:                            #STEP: holds step list
+      - uses: actions/checkout@v4     # STEP 1 + ACTION: grab code
+      - uses: actions/setup-python@v5 # STEP 2 + ACTION: install Python
+        with:                         # ACTION: inputs to setup-python
+          python-version: "3.11"      # ACTION: input for the Python versiont
       - run: pip install pytest       #STEP 3: install pytest
       - run: pytest                   #STEP 4: run tests
