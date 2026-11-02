@@ -9,4 +9,5 @@ pipeline mechanics, not to understanding the code being tested.
 def greet(name):
     if not name:
         return "Hello, stranger!"
+    person = {"name":name}
     return f"Hello, {person["name"]}!"

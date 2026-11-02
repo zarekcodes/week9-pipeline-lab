@@ -8,7 +8,7 @@ jobs:                                 #JOB: holds jobs
     strategy:
       fail-fast: false
       matrix:
-        python-vesion: ["3.11","3.12"]
+        python-version: ["3.11","3.12"]
     steps:                            #STEP: holds step list
       - uses: actions/checkout@v4     # STEP 1 + ACTION: grab code
       - uses: actions/setup-python@v5 # STEP 2 + ACTION: install Python
