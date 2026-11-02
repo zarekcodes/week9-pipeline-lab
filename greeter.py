@@ -10,4 +10,4 @@ def greet(name):
     if not name:
         return "Hello, stranger!"
     person = {"name":name}
-    return f"Hello, {person["name"]}!"
+    return f"Hello, {person['name']}!"
