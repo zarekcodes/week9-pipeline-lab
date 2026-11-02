@@ -5,10 +5,14 @@ on: [push]                            #EVENT: run on every push
 jobs:                                 #JOB: holds jobs
   test:                               #JOB: specific job named test
     runs-on: ubuntu-latest            #RUNNER: clean Ubuntu machine for the job
+    strategy:
+      fail-fast: false
+      matrix:
+        python-vesion: ["3.11","3.12"]
     steps:                            #STEP: holds step list
       - uses: actions/checkout@v4     # STEP 1 + ACTION: grab code
       - uses: actions/setup-python@v5 # STEP 2 + ACTION: install Python
         with:                         # ACTION: inputs to setup-python
-          python-version: "3.11"      # ACTION: input for the Python version
+          python-version: ${{ matrix.python-version }}      # ACTION: input for the Python version
       - run: pip install pytest       #STEP 3: install pytest
       - run: pytest                   #STEP 4: run tests

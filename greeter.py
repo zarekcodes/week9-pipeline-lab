@@ -9,4 +9,4 @@ pipeline mechanics, not to understanding the code being tested.
 def greet(name):
     if not name:
         return "Hello, stranger!"
-    return f"Hello, {name}!"
+    return f"Hello, {person["name"]}!"
